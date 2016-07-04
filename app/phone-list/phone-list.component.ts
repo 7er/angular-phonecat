@@ -2,9 +2,10 @@
 // Register `phoneList` component, along with its associated controller and template
 
 
-import {Phone} from "../core/phone/phone.service";
+import {Phone, PhoneData} from "../core/phone/phone.service";
+
 class PhoneListController {
-  phones: any[];
+  phones: PhoneData[];
   orderProp: string;
   query: string;
   static $inject = ['phone'];

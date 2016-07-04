@@ -1,11 +1,14 @@
+import {PhoneData, Phone} from "../core/phone/phone.service";
+
 class PhoneDetailController {
     mainImageUrl: string;
-    phone: any;
-    static $inject = ['$routeParams', 'Phone'];
-    constructor($routeParams: angular.route.IRouteParamsService, Phone: any) {
-
-        this.phone = Phone.get({phoneId: $routeParams['phoneId']}, (phone: any) => {
-            this.setImage(phone.images[0]);
+    phone: PhoneData;
+    static $inject = ['$routeParams', 'phone'];
+    constructor($routeParams: angular.route.IRouteParamsService, phone: Phone) {
+        let phoneId = $routeParams['phoneId'];
+        phone.get(phoneId).subscribe(data => {
+            this.phone = data;
+            this.setImage(this.phone.images[0]);
         });
     }
 
