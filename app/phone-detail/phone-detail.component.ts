@@ -2,9 +2,9 @@ class PhoneDetailController {
     mainImageUrl: string;
     phone: any;
     static $inject = ['$routeParams', 'Phone'];
-    constructor($routeParams, Phone) {
+    constructor($routeParams: angular.route.IRouteParamsService, Phone: any) {
 
-        this.phone = Phone.get({phoneId: $routeParams.phoneId}, function (phone) {
+        this.phone = Phone.get({phoneId: $routeParams['phoneId']}, (phone: any) => {
             this.setImage(phone.images[0]);
         });
     }
