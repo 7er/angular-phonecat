@@ -2,13 +2,16 @@
 // Register `phoneList` component, along with its associated controller and template
 
 
+import {Phone} from "../core/phone/phone.service";
 class PhoneListController {
   phones: any[];
   orderProp: string;
   query: string;
-  static $inject = ['Phone'];
-  constructor(Phone: any) {
-    this.phones = Phone.query();
+  static $inject = ['phone'];
+  constructor(phone: Phone) {
+    phone.query().subscribe(phones => {
+      this.phones = phones;
+    });
     this.orderProp = 'age';
   }
 }
