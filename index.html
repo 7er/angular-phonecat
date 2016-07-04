@@ -8,25 +8,6 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="app.animations.css" />
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-
-    <script src="app.module.js"></script>
-    <script src="app.config.js"></script>
-    <script src="app.animations.js"></script>
-    <script src="core/core.module.js"></script>
-    <!-- <script src="core/checkmark/checkmark.filter.js"></script> -->
-    <script src="core/phone/phone.module.js"></script>
-    <!--<script src="core/phone/phone.service.js"></script>-->
-    <script src="phone-list/phone-list.module.js"></script>
-    <!-- <script src="phone-list/phone-list.component.js"></script> -->
-    <script src="phone-detail/phone-detail.module.js"></script>
-    <!--<script src="phone-detail/phone-detail.component.js"></script>-->
-
-
     <script src="/node_modules/core-js/client/shim.min.js"></script>
     <script src="/node_modules/zone.js/dist/zone.js"></script>
     <script src="/node_modules/reflect-metadata/Reflect.js"></script>
@@ -37,10 +18,6 @@
     </script>
   </head>
   <body>
-
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
-    </div>
-
+    <phonecat-app></phonecat-app>
   </body>
 </html>
