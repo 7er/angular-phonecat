@@ -2,18 +2,32 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: './app',
+    basePath: './',
 
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-animate/angular-animate.js',
-      'bower_components/angular-resource/angular-resource.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      '**/*.module.js',
-      '*!(.module|.spec).js',
-      '!(bower_components)/**/*!(.module|.spec).js',
-      '**/*.spec.js'
+// System.js for module loading
+      'node_modules/systemjs/dist/system.src.js',
+// Polyfills
+      'node_modules/core-js/client/shim.js',
+// Reflect and Zone.js
+      'node_modules/reflect-metadata/Reflect.js',
+      'node_modules/zone.js/dist/zone.js',
+      'node_modules/zone.js/dist/jasmine-patch.js',
+      'node_modules/zone.js/dist/async-test.js',
+      'node_modules/zone.js/dist/fake-async-test.js',
+// RxJs.
+      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
+// Angular 2 itself and the testing library
+      {pattern: 'node_modules/@angular/**/*.js', included: false, watched: false},
+      {pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false},
+      {pattern: 'systemjs.config.js', included: false, watched: false},
+      'karma-test-shim.js',
+      {pattern: 'app/**/*.module.js', included: false, watched: true},
+      {pattern: 'app/*!(.module|.spec).js', included: false, watched: true},
+      {pattern: 'app/!(bower_components)/**/*!(.module|.spec).js', included: false, watched: true},
+      {pattern: 'app/**/*.spec.js', included: false, watched: true},
+      {pattern: '**/*.html', included: false, watched: true},
     ],
 
     autoWatch: true,
@@ -21,6 +35,13 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     browsers: ['Chrome', 'Firefox'],
+
+// proxied base paths for loading assets
+    proxies: {
+      // required for component assets fetched by Angular's compiler
+      "/phone-detail": '/base/app/phone-detail',
+      "/phone-list": '/base/app/phone-list'
+    },
 
     plugins: [
       'karma-chrome-launcher',

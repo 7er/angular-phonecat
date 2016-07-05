@@ -2,6 +2,7 @@
 exports.config = {
 
   allScriptsTimeout: 11000,
+  useAllAngular2AppRoots: true,
 
   specs: [
     '*.js'

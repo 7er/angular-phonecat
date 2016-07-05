@@ -17,24 +17,26 @@ describe('PhoneCat Application', function() {
     });
 
     it('should filter the phone list as a user types into the search box', function() {
-      var phoneList = element.all(by.repeater('phone in $ctrl.phones'));
-      var query = element(by.model('$ctrl.query'));
+      var phoneList = element.all(by.css('.phones li'));
+      var query = element(by.css('input'));
 
       expect(phoneList.count()).toBe(20);
 
       query.sendKeys('nexus');
+      browser.waitForAngular();
       expect(phoneList.count()).toBe(1);
 
       query.clear();
       query.sendKeys('motorola');
+      browser.waitForAngular();
       expect(phoneList.count()).toBe(8);
     });
 
     it('should be possible to control phone order via the drop-down menu', function() {
-      var queryField = element(by.model('$ctrl.query'));
-      var orderSelect = element(by.model('$ctrl.orderProp'));
+      var queryField = element(by.css('input'));
+      var orderSelect = element(by.css('select'));
       var nameOption = orderSelect.element(by.css('option[value="name"]'));
-      var phoneNameColumn = element.all(by.repeater('phone in $ctrl.phones').column('phone.name'));
+      var phoneNameColumn = element.all(by.css('.phones .name'));
 
       function getNames() {
         return phoneNameColumn.map(function(elem) {
@@ -58,7 +60,7 @@ describe('PhoneCat Application', function() {
     });
 
     it('should render phone specific links', function() {
-      var query = element(by.model('$ctrl.query'));
+      var query = element(by.css('input'));
       query.sendKeys('nexus');
 
       element.all(by.css('.phones li a')).first().click();
