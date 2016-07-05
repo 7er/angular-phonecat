@@ -23,7 +23,7 @@ module.exports = function(config) {
       {pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false},
       {pattern: 'systemjs.config.js', included: false, watched: false},
       'karma-test-shim.js',
-      {pattern: 'app/**/*.module.js', included: false, watched: true},
+// Our code
       {pattern: 'app/*!(.module|.spec).js', included: false, watched: true},
       {pattern: 'app/!(bower_components)/**/*!(.module|.spec).js', included: false, watched: true},
       {pattern: 'app/**/*.spec.js', included: false, watched: true},
