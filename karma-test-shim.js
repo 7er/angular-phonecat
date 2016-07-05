@@ -39,7 +39,6 @@ System.import('systemjs.config.js')
         // This will run the tests directly.
         return Promise.all(
             allSpecFiles.map(function (moduleName) {
-                console.log("about to import: ", moduleName);
                 return System.import(moduleName);
             }));
     })

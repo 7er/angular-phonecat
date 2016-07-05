@@ -11,8 +11,7 @@ import {RouteParams} from "@angular/router-deprecated";
 export class PhoneDetailComponent {
     mainImageUrl: string;
     phone: PhoneData;
-    constructor(routeParams: RouteParams,
-                phone: Phone) {
+    constructor(routeParams: RouteParams, phone: Phone) {
         let phoneId = routeParams.get('phoneId');
         phone.get(phoneId).subscribe(data => {
             this.phone = data;
@@ -21,7 +20,6 @@ export class PhoneDetailComponent {
     }
 
     setImage(imageUrl) {
-        console.log("setImage: ", imageUrl);
         this.mainImageUrl = imageUrl;
     }
 }
