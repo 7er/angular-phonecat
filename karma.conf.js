@@ -34,7 +34,7 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome', 'Firefox'],
+    browsers: ['Chrome'],
 
 // proxied base paths for loading assets
     proxies: {

@@ -7,7 +7,7 @@ function isJsFile(path) {
     return path.slice(-3) == '.js';
 }
 function isSpecFile(path) {
-    return /checkmark.pipe.spec\.js$/.test(path);
+    return /\.spec\.js$/.test(path);
 }
 function isBuiltFile(path) {
     var builtPath = '/base/app/';
@@ -39,6 +39,7 @@ System.import('systemjs.config.js')
         // This will run the tests directly.
         return Promise.all(
             allSpecFiles.map(function (moduleName) {
+                console.log("about to import: ", moduleName);
                 return System.import(moduleName);
             }));
     })
