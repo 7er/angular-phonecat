@@ -39,8 +39,8 @@ module.exports = function(config) {
 // proxied base paths for loading assets
     proxies: {
       // required for component assets fetched by Angular's compiler
-      "/phone-detail": '/base/app/phone-detail',
-      "/phone-list": '/base/app/phone-list'
+      "/app/phone-detail": '/base/app/phone-detail',
+      "/app/phone-list": '/base/app/phone-list'
     },
 
     plugins: [
