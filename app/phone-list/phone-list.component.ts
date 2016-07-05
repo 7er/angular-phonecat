@@ -7,7 +7,7 @@ import {Component} from "@angular/core";
 
 @Component({
   selector: 'phone-list',
-  templateUrl: 'phone-list/phone-list.template.html'
+  templateUrl: 'app/phone-list/phone-list.template.html'
 })
 export class PhoneListComponent {
   phones: PhoneData[];

@@ -7,7 +7,7 @@ import {PhoneDetailComponent} from "./phone-detail/phone-detail.component";
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {AppComponent} from "./app.component";
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
-import {APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from "@angular/common";
+import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 
 // let upgradeAdapter = new UpgradeAdapter();
 // upgradeAdapter.addProvider(HTTP_PROVIDERS);
@@ -25,7 +25,7 @@ import {APP_BASE_HREF, LocationStrategy, HashLocationStrategy} from "@angular/co
 bootstrap(<Type>AppComponent, [
   HTTP_PROVIDERS,
   ROUTER_PROVIDERS,
-  { provide: APP_BASE_HREF, useValue: '!' },
-  { provide: LocationStrategy, useClass: HashLocationStrategy },
+  //{ provide: APP_BASE_HREF, useValue: '!' },
+  {provide: LocationStrategy, useClass: HashLocationStrategy },
   Phone
 ])

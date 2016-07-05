@@ -5,7 +5,7 @@ import {RouteParams} from "@angular/router-deprecated";
 
 @Component({
     selector: 'phone-detail',
-    templateUrl: 'phone-detail/phone-detail.template.html',
+    templateUrl: 'app/phone-detail/phone-detail.template.html',
     pipes: [ <Type>CheckmarkPipe ]
 })
 export class PhoneDetailComponent {

@@ -14,11 +14,11 @@ export interface PhoneData {
 export class Phone {
   constructor(private http: Http) {}
   query(): Observable<PhoneData[]> {
-    return this.http.get('phones/phones.json')
+    return this.http.get('app/phones/phones.json')
         .map((res: Response) => res.json());
   }
   get(id: string): Observable<PhoneData> {
-    return this.http.get(`phones/${id}.json`)
+    return this.http.get(`app/phones/${id}.json`)
         .map((res: Response) => res.json());
   }
 }
